@@ -1,0 +1,39 @@
+{
+  "name": "AlphaFund",
+  "description": "AI驱动的专业基金智能投顾平台",
+  "colors": {
+    "primary": "#1E40AF",
+    "secondary": "#06B6D4",
+    "gradient": ["#1E40AF", "#3B82F6", "#06B6D4", "#22D3EE"]
+  },
+  "icon_design": {
+    "style": "科技金融风格",
+    "elements": [
+      "大写字母A - 代表Alpha（超额收益）",
+      "神经网络节点 - 3个连接点代表数据/智能/收益",
+      "渐变效果 - 蓝色到青色的过渡",
+      "外圈光环 - 表示专业与权威"
+    ]
+  },
+  "versions": {
+    "play_store": {
+      "size": "512x512",
+      "format": "PNG",
+      "background": "透明或渐变色块"
+    },
+    "app_icon": {
+      "ios": "1024x1024",
+      "android": "192x192, 512x512 adaptive"
+    },
+    "splash_icon": {
+      "size": "1280x720",
+      "include_text": "AlphaFund"
+    }
+  },
+  "design_specs": {
+    "canvas": "1024x1024",
+    "safe_zone": "中心800x800区域",
+    "stroke_width": "主体线条8-12px",
+    "node_radius": "主节点40px，次节点24px"
+  }
+}

@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- 渐变定义 -->
+  <defs>
+    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E40AF"/>
+      <stop offset="50%" style="stop-color:#3B82F6"/>
+      <stop offset="100%" style="stop-color:#06B6D4"/>
+    </linearGradient>
+    
+    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E40AF;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:0.3"/>
+    </linearGradient>
+    
+    <!-- 外圈光晕 -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- 节点发光 -->
+    <filter id="nodeGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 背景圆形（可选） -->
+  <circle cx="512" cy="512" r="500" fill="url(#glowGradient)" opacity="0.1"/>
+  
+  <!-- 外圈光环 -->
+  <circle cx="512" cy="512" r="480" 
+          fill="none" stroke="url(#primaryGradient)" 
+          stroke-width="8" opacity="0.3"/>
+  
+  <!-- 字母A主体 -->
+  <g transform="translate(512, 480) scale(2.5)">
+    <!-- A的主干 - 使用渐变 -->
+    <path d="M0,-200 L-100,120 L-60,120 L-30,40 L30,40 L60,120 L100,120 L0,-200" 
+          fill="none" stroke="url(#primaryGradient)" 
+          stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- A的横杆 -->
+    <path d="M-45,60 L45,60" 
+          stroke="url(#primaryGradient)" 
+          stroke-width="12" stroke-linecap="round"/>
+  </g>
+  
+  <!-- 神经网络节点 - 3个代表数据/智能/收益 -->
+  <!-- 顶部节点（智能） -->
+  <g transform="translate(512, 220)" filter="url(#nodeGlow)">
+    <circle cx="0" cy="0" r="28" fill="url(#primaryGradient)"/>
+    <circle cx="0" cy="0" r="18" fill="#FFFFFF"/>
+    <circle cx="0" cy="0" r="10" fill="url(#primaryGradient)"/>
+  </g>
+  
+  <!-- 左侧节点（数据） -->
+  <g transform="translate(280, 420)" filter="url(#nodeGlow)">
+    <circle cx="0" cy="0" r="20" fill="#3B82F6"/>
+    <circle cx="0" cy="0" r="12" fill="#FFFFFF"/>
+    <circle cx="0" cy="0" r="6" fill="#3B82F6"/>
+  </g>
+  
+  <!-- 右侧节点（收益） -->
+  <g transform="translate(744, 420)" filter="url(#nodeGlow)">
+    <circle cx="0" cy="0" r="20" fill="#06B6D4"/>
+    <circle cx="0" cy="0" r="12" fill="#FFFFFF"/>
+    <circle cx="0" cy="0" r="6" fill="#06B6D4"/>
+  </g>
+  
+  <!-- 连接线 - 从节点到A -->
+  <!-- 顶部到A -->
+  <line x1="512" y1="248" x2="512" y2="360" 
+        stroke="url(#primaryGradient)" stroke-width="3" stroke-dasharray="8,4" opacity="0.6"/>
+  
+  <!-- 左侧到A -->
+  <line x1="300" y1="420" x2="420" y2="460" 
+        stroke="#3B82F6" stroke-width="3" stroke-dasharray="8,4" opacity="0.6"/>
+  
+  <!-- 右侧到A -->
+  <line x1="724" y1="420" x2="604" y2="460" 
+        stroke="#06B6D4" stroke-width="3" stroke-dasharray="8,4" opacity="0.6"/>
+  
+  <!-- 底部弧线（增长曲线暗示） -->
+  <path d="M180,700 Q512,780 844,680" 
+        fill="none" stroke="url(#primaryGradient)" 
+        stroke-width="6" stroke-linecap="round" opacity="0.5"/>
+  
+  <!-- 增长箭头 -->
+  <g transform="translate(820, 660)">
+    <polygon points="0,-20 15,0 5,0 5,20 -5,20 -5,0 -15,0" 
+             fill="url(#primaryGradient)" transform="rotate(45)"/>
+  </g>
+  
+  <!-- 底部文字区域 -->
+  <text x="512" y="900" 
+        font-family="'Noto Sans SC', Arial, sans-serif" 
+        font-size="80" font-weight="bold" 
+        fill="url(#primaryGradient)" 
+        text-anchor="middle" letter-spacing="8">
+    AlphaFund
+  </text>
+</svg>
