@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+def flutterRoot = project.hasProperty('flutterRoot') ? project.flutterRoot : System.env.FLUTTER_ROOT ?: '/opt/hostedtoolcache/flutter/stable-3.19.0-x64'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
